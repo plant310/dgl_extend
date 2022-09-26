@@ -3,7 +3,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-from train import device
+from test_gcn import device
 
 
 class VGAEModel(nn.Module):

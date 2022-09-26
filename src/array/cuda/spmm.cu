@@ -49,6 +49,18 @@ void SpMMCsr(const std::string& op, const std::string& reduce,
   bool is_scalar_efeat = efeat.NumElements() == csr.indices->shape[0];
   bool use_efeat = op != "copy_lhs";
 
+  // int64_t x_length = 1;
+  // for (int i = 1; i < ufeat->ndim; ++i)
+  //   x_length *= ufeat->shape[i];
+
+  // SWITCH_BITS(bits, DType, {
+  //   SWITCH_OP(op, Op, {
+  //     cuda::GESpMMCsr<IdType, DType, Op>(
+  //         csr, ufeat, efeat, out, x_length);
+  //   });
+  // });
+  // printf("1");
+
   if (reduce == "sum") {
     bool more_nnz = (csr.indices->shape[0] > csr.num_rows * csr.num_cols);
     if (op == "copy_lhs" && cusparse_available<bits, IdType>(more_nnz)) {

@@ -31,7 +31,7 @@ import torch.multiprocessing as mp
 from train_pytorch import load_model, dist_train_test
 from utils import get_compatible_batch_size
 
-from train import get_logger
+from test_gcn import get_logger
 from dataloader import TrainDataset, NewBidirectionalOneShotIterator
 from dataloader import get_dataset, get_partition_dataset
 

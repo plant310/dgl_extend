@@ -47,7 +47,7 @@ __global__ void GESpMMKernel(
 #pragma unroll
           for (Idx i = 0; i < 32; ++i) {
             const Idx eid = left + i; 
-            const Idx cid = __ldg(indices + eid);
+            const Idx cid = __ldg(indices + eid);   //列索引
             const Idx offset = feat_len * cid + fid;
             if (BinaryOp::use_rhs) {
               accum_0 += BinaryOp::Call(ufeat + offset, efeat + eid);
